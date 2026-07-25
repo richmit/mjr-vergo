@@ -3,46 +3,17 @@
 ;; Copyright (C) 2026-2026 First Last me@mitchr.me
 
 ;; Author:      Mitch Richling
-;; Version:     0.11
+;; Version:     0.12
 ;; Keywords:    verGo
-;; URL:         https://github.com/richmit/verGo
+;; URL:         https://github.com/richmit/mjr-vergo
 
 ;; This file is not part of Emacs
 
 ;;; Install:
-
-;; Manual (with `load-path'): 
-;;   - Put mjr-vergo.el somplace
-;;   - Add the directory with mjr-vergo.el to the `load-path'
-;;   - Add this to ~/.emacs: (require 'mjr-vergo)
-;; Manual (no `load-path' option):
-;;   - Put mjr-vergo.el somplace
-;;   - Add this to ~/.emacs: (require 'mjr-vergo "fully_qualified_path_name_for_mjr-vergo.el")
-;; As a package pulled from github:
-;;   - Run the following:
-;;     (package-vc-install (list 'mjr-vergo
-;;                               :url "https://github.com/richmit/verGo"
-;;                               :lisp-dir "emacs"
-;;                               :main-file "mjr-vergo.el"
-;;                               :rev 'newest))
+;; See the README: https://github.com/richmit/mjr-vergo/
 
 ;;; Commentary:
-
-;; Provide access to verGo.sh from inside Emacs.
-;; The following examples use my dot files.
-;;
-;;     (mjr-vergo "lisp")
-;;     ("C:/Program Files/Steel Bank Common Lisp/sbcl.exe" "SBCL_HOME=C:\\Program Files\\Steel Bank Common Lisp\\")
-;; 
-;;     (mjr-vergo "lisp" 'RAW)
-;;     ("/c/Program Files/Steel Bank Common Lisp/sbcl.exe" "SBCL_HOME=C:\\Program Files\\Steel Bank Common Lisp\\")
-;;
-;; From the command line: 
-;;
-;;     verGo.sh -noErrors -noRun -prtCmd -prtVar -prtFmt RAW lisp
-;;     
-;;     /c/Program Files/Steel Bank Common Lisp/sbcl.exe
-;;     SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\
+;; See the README: https://github.com/richmit/mjr-vergo/
 
 ;;; Code:
 
@@ -64,7 +35,7 @@
 ;;;###autoload
 (defun mjr-vergo (app &optional path-format)
   "Use verGo.sh to find a binary and environment variables (list of strings).
-If path-format is invalid or missing, then `MIX' is used.  
+If path-format is invalid or missing, then `MIX' is used.
 NIL is returned if anything goes wrong -- no errors are raised."
   (when-let* ((path-format (or (car (member path-format '(RAW UNIX WIN DOS MIX)))
                                'MIX))
@@ -80,7 +51,7 @@ NIL is returned if anything goes wrong -- no errors are raised."
               (exe-path    (car ret))
               (            (stringp exe-path))
               (            (not (string-empty-p exe-path)))
-              (            (or (and (eq system-type 'windows-nt) (or (eq path-format 'RAW) (eq path-format 'UNX))) 
+              (            (or (and (eq system-type 'windows-nt) (or (eq path-format 'RAW) (eq path-format 'UNX)))
                                (file-executable-p exe-path))))
     ret))
 
