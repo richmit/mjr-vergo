@@ -1,4 +1,4 @@
-;; mjr-vergo.el --- verGo.sh wrapper. -*- lexical-binding:t; coding: utf-8; mode:emacs-lisp; fill-column:158 -*-
+;;; mjr-vergo.el --- verGo.sh wrapper. -*- lexical-binding:t; coding: utf-8; mode:emacs-lisp; fill-column:158 -*-
 
 ;; Copyright (c) 2026-2026 Mitch Richling <https://www.mitchr.me>.  All rights reserved.
 ;;
