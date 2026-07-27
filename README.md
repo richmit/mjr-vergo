@@ -1,5 +1,4 @@
-mjr-vergo
-=========
+# mjr-vergo
 
 mjr-vergo provides a very simple Emacs interface to the verGo.sh shell script (https://github.com/richmit/verGo).
 
