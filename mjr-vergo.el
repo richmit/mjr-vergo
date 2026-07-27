@@ -47,14 +47,17 @@
 ;;
 ;;      (mjr-vergo "lisp" 'RAW)
 ;;
-;;      ("/c/Program Files/Steel Bank Common Lisp/sbcl.exe" "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
+;;      ("/c/Program Files/Steel Bank Common Lisp/sbcl.exe"
+;;       "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
 ;;
 ;; mjr-vergo returns a list.  The first element is the executable and the remaining are environment variables.  Note the 'RAW argument.  By default mjr-vergo
 ;; produces 'MIX type executable path names because most of the time in Emacs we need platform specific paths for binaries -- i.e. even if Emacs is running on
 ;; MSYS2, it uses windows style paths to run commands instead of MSYS2 bash style paths.  Here is an example:
 ;;
 ;;      (mjr-vergo "lisp")
-;;      ("C:/Program Files/Steel Bank Common Lisp/sbcl.exe" "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
+;;
+;;      ("C:/Program Files/Steel Bank Common Lisp/sbcl.exe" 
+;;       "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
 ;;
 ;; The easiest way to install mjr-vergo is to pull it directly from github:
 ;;

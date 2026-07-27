@@ -23,7 +23,7 @@
 
       (mjr-vergo "lisp" 'RAW)
 
-      ("/c/Program Files/Steel Bank Common Lisp/sbcl.exe" 
+      ("/c/Program Files/Steel Bank Common Lisp/sbcl.exe"
        "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
 
  mjr-vergo returns a list.  The first element is the executable and the remaining are environment variables.  Note the 'RAW argument.  By default mjr-vergo
@@ -31,6 +31,7 @@
  MSYS2, it uses windows style paths to run commands instead of MSYS2 bash style paths.  Here is an example:
 
       (mjr-vergo "lisp")
+
       ("C:/Program Files/Steel Bank Common Lisp/sbcl.exe" 
        "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
 
