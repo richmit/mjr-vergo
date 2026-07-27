@@ -19,14 +19,11 @@
 ;; TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ;; Author:      Mitch Richling <https://www.mitchr.me>
-;; Version:     0.20
+;; Version:     0.21
 ;; Keywords:    verGo
 ;; URL:         https://github.com/richmit/mjr-vergo
 
 ;; This file is not part of Emacs
-
-;;; Install:
-;; See the README: https://github.com/richmit/mjr-vergo/
 
 ;;; Commentary:
 ;; See the README: https://github.com/richmit/mjr-vergo/
