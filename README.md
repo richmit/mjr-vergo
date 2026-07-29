@@ -1,6 +1,7 @@
 # mjr-vergo
 
 <!-- SHELLO: ~/core/codeBits/bin/emacs_package_com_to_md.rb mjr-vergo.el -->
+ Official Repositorie: https://github.com/richmit/mjr-vergo
 
  `mjr-vergo` provides a very simple Emacs interface to the verGo.sh shell script (https://github.com/richmit/verGo).
 
@@ -41,4 +42,3 @@
                            :rev 'newest))
 
  You can also just down load the primary lisp file, load it into a buffer, and then run 'M-x package-install-from-buffer'.
-

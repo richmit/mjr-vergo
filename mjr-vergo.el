@@ -27,6 +27,8 @@
 
 ;;; Commentary:
 ;;
+;; Official Repositorie: https://github.com/richmit/mjr-vergo
+;;
 ;; `mjr-vergo' provides a very simple Emacs interface to the verGo.sh shell script (https://github.com/richmit/verGo).
 ;;
 ;; While the verGo.sh shell script is focused on running applications, the `mjr-vergo' Emacs package is focused on reporting on applications (executable and
