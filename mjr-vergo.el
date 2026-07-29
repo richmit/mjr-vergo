@@ -19,7 +19,7 @@
 ;; TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ;; Author:      Mitch Richling <https://www.mitchr.me>
-;; Version:     0.21
+;; Version:     0.22
 ;; Keywords:    verGo
 ;; URL:         https://github.com/richmit/mjr-vergo
 
@@ -27,12 +27,12 @@
 
 ;;; Commentary:
 ;;
-;; Official Repositorie: https://github.com/richmit/mjr-vergo
+;; Official Repository: https://github.com/richmit/mjr-vergo
 ;;
 ;; `mjr-vergo' provides a very simple Emacs interface to the verGo.sh shell script (https://github.com/richmit/verGo).
 ;;
 ;; While the verGo.sh shell script is focused on running applications, the `mjr-vergo' Emacs package is focused on reporting on applications (executable and
-;; environment variables).  I make extensive use of `mjr-vergo' in my Emacs dot file to locate various applications.
+;; environment variables).  I make extensive use of `mjr-vergo' in my Emacs dotfiles to locate various extneral tools.
 ;;
 ;; If we run verGo.sh from the command line looking for Lisp with my dotfiles, we get something like this:
 ;;
@@ -67,7 +67,7 @@
 ;;                           :url "https://github.com/richmit/mjr-vergo"
 ;;                           :rev 'newest))
 ;;
-;; You can also just down load the primary lisp file, load it into a buffer, and then run 'M-x package-install-from-buffer'.
+;; You can also just download the primary lisp file, load it into a buffer, and then run 'M-x package-install-from-buffer'.
 
 ;;; Code:
 
