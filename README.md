@@ -1,7 +1,7 @@
 # mjr-vergo
 
 <!-- SHELLO: ~/core/codeBits/bin/emacs_package_com_to_md.rb mjr-vergo.el -->
- Official Repositorie: https://github.com/richmit/mjr-vergo
+ Official Repository: https://github.com/richmit/mjr-vergo
 
  `mjr-vergo` provides a very simple Emacs interface to the verGo.sh shell script (https://github.com/richmit/verGo).
 
