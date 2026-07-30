@@ -1,4 +1,4 @@
-# mjr-vergo
+# mjr-vergo 
 
 <!-- SHELLO: ~/core/codeBits/bin/emacs_package_com_to_md.rb mjr-vergo.el -->
  Official Repository: https://github.com/richmit/mjr-vergo
