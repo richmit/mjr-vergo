@@ -1,4 +1,4 @@
-;;; mjr-vergo.el --- verGo.sh wrapper. -*- lexical-binding:t; coding: utf-8; mode:emacs-lisp; fill-column:158 -*-
+;;; el-vergo.el --- verGo.sh wrapper. -*- lexical-binding:t; coding: utf-8; mode:emacs-lisp; fill-column:158 -*-
 
 ;; Copyright (c) 2026-2026 Mitch Richling <https://www.mitchr.me>.  All rights reserved.
 ;;
@@ -21,18 +21,18 @@
 ;; Author:      Mitch Richling <https://www.mitchr.me>
 ;; Version:     0.22
 ;; Keywords:    verGo
-;; URL:         https://github.com/richmit/mjr-vergo
+;; URL:         https://github.com/richmit/el-vergo
 
 ;; This file is not part of Emacs
 
 ;;; Commentary:
 ;;
-;; Official Repository: https://github.com/richmit/mjr-vergo
+;; Official Repository: https://github.com/richmit/el-vergo
 ;;
-;; `mjr-vergo' provides a very simple Emacs interface to the verGo.sh shell script (https://github.com/richmit/verGo).
+;; `el-vergo' provides a very simple Emacs interface to the verGo.sh shell script (https://github.com/richmit/verGo).
 ;;
-;; While the verGo.sh shell script is focused on running applications, the `mjr-vergo' Emacs package is focused on reporting on applications (executable and
-;; environment variables).  I make extensive use of `mjr-vergo' in my Emacs dotfiles to locate various extneral tools.
+;; While the verGo.sh shell script is focused on running applications, the `el-vergo' Emacs package is focused on reporting on applications (executable and
+;; environment variables).  I make extensive use of `el-vergo' in my Emacs dotfiles to locate various extneral tools.
 ;;
 ;; If we run verGo.sh from the command line looking for Lisp with my dotfiles, we get something like this:
 ;;
@@ -41,30 +41,30 @@
 ;;      /c/Program Files/Steel Bank Common Lisp/sbcl.exe
 ;;      SBCL_HOME=C:\\Program Files\\Steel Bank Common Lisp\\
 ;;
-;; I ran this on Windows inside an MSYS2 (https://www.msys2.org/) shell environment to illustrate some of the complexity verGo.sh & `mjr-vergo' deal with.
+;; I ran this on Windows inside an MSYS2 (https://www.msys2.org/) shell environment to illustrate some of the complexity verGo.sh & `el-vergo' deal with.
 ;; The first line is the location of the executable.  Note the characteristic "/c/" full path name.  The second line is an environment variable that must be
 ;; set in order for this application to run.  Note the Windows style path required because the value is going to be consumed by a Windows SCBL binary.
 ;;
 ;; Inside of Emacs we can do something very similar:
 ;;
-;;      (mjr-vergo "lisp" 'RAW)
+;;      (el-vergo "lisp" 'RAW)
 ;;
 ;;      ("/c/Program Files/Steel Bank Common Lisp/sbcl.exe"
 ;;       "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
 ;;
-;; `mjr-vergo' returns a list.  The first element is the executable and the remaining are environment variables.  Note the 'RAW argument.  By default
-;; `mjr-vergo' produces 'MIX type executable path names because most of the time in Emacs we need platform specific paths for binaries -- i.e. even if Emacs
+;; `el-vergo' returns a list.  The first element is the executable and the remaining are environment variables.  Note the 'RAW argument.  By default
+;; `el-vergo' produces 'MIX type executable path names because most of the time in Emacs we need platform specific paths for binaries -- i.e. even if Emacs
 ;; is running on MSYS2, it uses windows style paths to run commands instead of MSYS2 bash style paths.  Here is an example:
 ;;
-;;      (mjr-vergo "lisp")
+;;      (el-vergo "lisp")
 ;;
 ;;      ("C:/Program Files/Steel Bank Common Lisp/sbcl.exe"
 ;;       "SBCL_HOME=C:\Program Files\Steel Bank Common Lisp\")
 ;;
-;; The easiest way to install `mjr-vergo' is to pull it directly from github:
+;; The easiest way to install `el-vergo' is to pull it directly from github:
 ;;
-;;      (package-vc-install (list 'mjr-vergo
-;;                           :url "https://github.com/richmit/mjr-vergo"
+;;      (package-vc-install (list 'el-vergo
+;;                           :url "https://github.com/richmit/el-vergo"
 ;;                           :rev 'newest))
 ;;
 ;; You can also just download the primary lisp file, load it into a buffer, and then run 'M-x package-install-from-buffer'.
@@ -73,21 +73,21 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;###autoload
-(defgroup mjr-vergo nil
+(defgroup el-vergo nil
   "Access verGo.sh from Emacs."
   :group 'external
   :group 'environment)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;###autoload
-(defcustom mjr-vergo-bin (locate-file "verGo.sh" exec-path)
+(defcustom el-vergo-bin (locate-file "verGo.sh" exec-path)
   "File to use for vreGo.sh."
   :type 'file
-  :group 'mjr-vergo)
+  :group 'el-vergo)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;###autoload
-(defun mjr-vergo (app &optional path-format)
+(defun el-vergo (app &optional path-format)
   "Use verGo.sh to find a binary and environment variables (list of strings).
 
 Arguments:
@@ -101,7 +101,7 @@ Return:
     environment variables."
   (when-let* ((path-format (or (car (member path-format '(RAW UNIX WIN DOS MIX)))
                                'MIX))
-              (ver-go-bin  mjr-vergo-bin)
+              (ver-go-bin  el-vergo-bin)
               (            (file-exists-p ver-go-bin))
               (            (stringp app))
               (            (not (string-empty-p app)))
@@ -119,17 +119,17 @@ Return:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;###autoload
-(defun mjr-vergo-ok ()
-  "Return non-NIL if `mjr-vergo-bin' seems to be a valid file.
+(defun el-vergo-ok ()
+  "Return non-NIL if `el-vergo-bin' seems to be a valid file.
 Recommended way to tell if vergo is available:
-   (and (featurep 'mjr-vergo)
-        (mjr-vergo-ok))"
-  (and (boundp 'mjr-vergo-bin)
-       (stringp mjr-vergo-bin)
-       (file-exists-p mjr-vergo-bin)
+   (and (featurep 'el-vergo)
+        (el-vergo-ok))"
+  (and (boundp 'el-vergo-bin)
+       (stringp el-vergo-bin)
+       (file-exists-p el-vergo-bin)
        (or (eq system-type 'windows-nt)
-           (file-executable-p mjr-vergo-bin))))
+           (file-executable-p el-vergo-bin))))
 
-(provide 'mjr-vergo)
+(provide 'el-vergo)
 
-;;; mjr-vergo.el ends here
+;;; el-vergo.el ends here
